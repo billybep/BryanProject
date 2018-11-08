@@ -13,8 +13,8 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark class="blue darken-4">
-      <v-toolbar-side-icon 
+    <v-toolbar fixed dark class="blue darken-4">
+      <v-toolbar-side-icon
         @click.stop="sideNav = !sideNav"
         class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
@@ -32,14 +32,18 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
+
     <!-- For Main Content WebApp -->
     <main>
+      <app-filter-mix style="margin-top: 63px"></app-filter-mix>
       <router-view></router-view>
     </main>
   </v-app>
 </template>
 
 <script>
+import FilterMix from '@/components/FilterMix'
+
 export default {
   data () {
     return {
@@ -51,6 +55,9 @@ export default {
         { icon: 'lock_open', title: 'Sign in', link: '/signin' },
       ]
     }
+  },
+  components: {
+    appFilterMix: FilterMix
   }
 }
 </script>

@@ -2,7 +2,7 @@
     <v-container class="card-columns">
        
                 <!-- <v-card> -->
-                    <!-- <app-card></app-card> -->
+                    <app-card></app-card>
                     <!-- <app-card-test></app-card-test> -->
 
                     <!-- <v-card v-for="item in cardItems" :key="item.cardTitle">
@@ -38,6 +38,7 @@
 <script>
     import Card from '@/components/Vendor/Card'
     import CardTest from '@/components/Vendor/CardTest'
+
 
     export default {
         components: {

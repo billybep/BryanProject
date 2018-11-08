@@ -51,7 +51,7 @@
                     {   cardTitle: 'Title 2', 
                         cardSubtitle: 'Subtitle 2', 
                         cardText: 'Card quote 2', 
-                        cardImg: 'https://source.unsplash.com/daily' 
+                        cardImg: 'https://source.unsplash.com/daily?sky' 
                     },
                     {   cardTitle: 'Title 3', 
                         cardSubtitle: 'Subtitle 3', 
@@ -61,12 +61,12 @@
                     {   cardTitle: 'Title 4', 
                         cardSubtitle: 'Subtitle 4', 
                         cardText: 'Card quote 4', 
-                        cardImg: 'https://source.unsplash.com/daily?wood' 
+                        cardImg: 'https://source.unsplash.com/daily' 
                     },
                     {   cardTitle: 'Title 5', 
                         cardSubtitle: 'Subtitle 5', 
                         cardText: 'Card quote 5', 
-                        cardImg: 'https://source.unsplash.com/daily' 
+                        cardImg: 'https://source.unsplash.com/daily?wood' 
                     },
                     {   cardTitle: 'Title 6', 
                         cardSubtitle: 'Subtitle 6', 
@@ -76,12 +76,12 @@
                     {   cardTitle: 'Title 1', 
                         cardSubtitle: 'Subtitle 1', 
                         cardText: 'Card quote 1', 
-                        cardImg: 'https://source.unsplash.com/daily?nature' 
+                        cardImg: 'https://source.unsplash.com/daily?a' 
                     },
                     {   cardTitle: 'Title 2', 
                         cardSubtitle: 'Subtitle 2', 
                         cardText: 'Card quote 2', 
-                        cardImg: 'https://source.unsplash.com/daily' 
+                        cardImg: 'https://source.unsplash.com/daily?tech' 
                     },
                     {   cardTitle: 'Title 3', 
                         cardSubtitle: 'Subtitle 3', 
@@ -96,27 +96,27 @@
                     {   cardTitle: 'Title 5', 
                         cardSubtitle: 'Subtitle 5', 
                         cardText: 'Card quote 5', 
-                        cardImg: 'https://source.unsplash.com/daily' 
+                        cardImg: 'https://source.unsplash.com/daily?abstrack' 
                     },
                     {   cardTitle: 'Title 6', 
                         cardSubtitle: 'Subtitle 6', 
                         cardText: 'Card quote 6', 
-                        cardImg: 'https://source.unsplash.com/collection/190727/800x600' 
+                        cardImg: 'https://source.unsplash.com/weekly' 
                     },
                     {   cardTitle: 'Title 1', 
                         cardSubtitle: 'Subtitle 1', 
                         cardText: 'Card quote 1', 
-                        cardImg: 'https://source.unsplash.com/daily?nature' 
+                        cardImg: 'https://source.unsplash.com/daily?h' 
                     },
                     {   cardTitle: 'Title 2', 
                         cardSubtitle: 'Subtitle 2', 
                         cardText: 'Card quote 2', 
-                        cardImg: 'https://source.unsplash.com/daily' 
+                        cardImg: 'https://source.unsplash.com/daily?music' 
                     },
                     {   cardTitle: 'Title 3', 
                         cardSubtitle: 'Subtitle 3', 
                         cardText: 'Card quote 3', 
-                        cardImg: 'https://source.unsplash.com/collection/190727/800x600' 
+                        cardImg: 'https://source.unsplash.com/user/erondu/daily' 
                     },
                     {   cardTitle: 'Title 4', 
                         cardSubtitle: 'Subtitle 4', 
@@ -126,12 +126,12 @@
                     {   cardTitle: 'Title 5', 
                         cardSubtitle: 'Subtitle 5', 
                         cardText: 'Card quote 5', 
-                        cardImg: 'https://source.unsplash.com/daily' 
+                        cardImg: 'https://source.unsplash.com/daily?design' 
                     },
                     {   cardTitle: 'Title 6', 
                         cardSubtitle: 'Subtitle 6', 
                         cardText: 'Card quote 6', 
-                        cardImg: 'https://source.unsplash.com/collection/190727/800x600' 
+                        cardImg: 'https://source.unsplash.com/daily?z' 
                     }
                 ]
             }
@@ -155,6 +155,5 @@
 .card-title {
     margin: 0px 0px;
 }
-
 </style>
 
