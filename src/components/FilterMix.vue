@@ -8,7 +8,8 @@
                         height="150px"
                     ></v-img>
                     <div class="card-img-overlay">
-                        <v-layout justify-center>
+                        <v-layout wrap justify-center>
+                            
                             <v-flex xs1 sm1 mr-3 d-flex>
                                 <v-select
                                 :items="kategori"
@@ -31,9 +32,11 @@
                                 ></v-select>
                             </v-flex>
 
-                            <v-btn fab dark small color="white">
-                            <v-icon color="blue darken-4">search</v-icon>
-                            </v-btn>
+                            <v-flex xs1 sm1 mr-3 d-flex>
+                                <v-btn large color="white black--text">Search 
+                                    <v-icon color="blue darken-4">search</v-icon>
+                                </v-btn>
+                            </v-flex>                               
                         </v-layout>
                     </div>
                 </v-card>

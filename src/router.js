@@ -6,6 +6,7 @@ import Signin from '@/components/User/Signin'
 import Signup from '@/components/User/Signup'
 import CreateVendorService from '@/components/Vendor/CreateVendorService'
 import VendorService from '@/components/Vendor/VendorService'
+import Vendor from '@/components/Vendor/Vendor'
 
 
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/vendor-service/new',
       name: 'CreateVendorService',
       component: CreateVendorService
+    },
+    {
+      path: '/vendor/:id',
+      name: 'Vendor',
+      component: Vendor
     }
   ]
 })

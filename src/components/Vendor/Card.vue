@@ -1,9 +1,6 @@
 <template>
-<div class="card-flex">
-   
-    
-
-    
+<v-card class="card-flex">
+      
     <div class="card" v-for="item in cardItems" :key="item.cardTitle">
         <img 
             class="card-img-top" 
@@ -35,7 +32,7 @@
 
     </div> 
     
-</div>   
+</v-card>   
 </template>
 
 <script>
