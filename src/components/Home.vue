@@ -46,7 +46,4 @@
         column-count: 1;
     }
 }
-
-
-
 </style>

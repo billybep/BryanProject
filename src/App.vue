@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!-- Sidebar Only for Medium | Small Screen -->
     <v-navigation-drawer v-model="sideNav" absolute temporary>
       <v-list>
         <v-list-tile 
@@ -13,6 +14,8 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+
+    <!-- Top Navbar -->
     <v-toolbar fixed dark class="blue darken-4">
       <v-toolbar-side-icon
         @click.stop="sideNav = !sideNav"
@@ -35,6 +38,7 @@
 
     <!-- For Main Content WebApp -->
     <main>
+      <!-- Search Content Componen -->
       <app-filter-mix style="margin-top: 63px"></app-filter-mix>
       <router-view></router-view>
     </main>

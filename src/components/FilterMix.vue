@@ -4,7 +4,7 @@
             <v-flex xs12>
                 <v-card dark color="blue darken-4">
                     <v-img
-                        src="https://source.unsplash.com/daily?music"
+                        src="https://source.unsplash.com/daily?music1"
                         height="150px"
                     ></v-img>
                     <div class="card-img-overlay">

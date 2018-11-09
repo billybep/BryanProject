@@ -1,13 +1,16 @@
 <template>
-<v-card class="card-flex">
-      
-    <div class="card" v-for="item in cardItems" :key="item.cardTitle">
-        <img 
+<div class="card-flex">
+
+    <v-card class="mb-3"
+        v-for="item in cardItems" 
+        :key="item.cardTitle">        
+        <v-img
             class="card-img-top" 
             :src="item.cardImg"
             max-height="600px"
-            alt="Card image top">
-        
+            @click="onLoadCard(item.id)"
+            alt="Card image top"></v-img>
+
         <!-- <div class="card-img-overlay">
             <h3 class="card-title" style="color: white;">{{ item.cardTitle }}</h3>
             <h4 class="card-subtitle" style="color: white;">{{ item.cardSubtitle}}</h4>
@@ -24,15 +27,23 @@
                          alt="woman avatar">
                  </div>
                  <div class="avatar-text col">
-                    <p class="card-title">Woman Avatar</p> 
-                    <p class="card-text"><small>Card Text Area</small></p>
+                    <p class="card-title">
+                        <router-link 
+                            tag="span" 
+                            style="cursor: pointer"
+                            to="/vendor/1">Woman Avatar
+                        </router-link>
+                    </p> 
+                    <p class="card-text">
+                        <small>Kategory - Lokasi</small>
+                    </p>
                 </div>
             </div>
         </div>
-
-    </div> 
     
-</v-card>   
+    </v-card> 
+
+</div>   
 </template>
 
 <script>
@@ -40,97 +51,120 @@
         data () {
             return {
                 cardItems: [
-                    {   cardTitle: 'Title 1', 
+                    {   id:'qwe1',
+                        cardTitle: 'Title 1', 
                         cardSubtitle: 'Subtitle 1', 
                         cardText: 'Card quote 1', 
                         cardImg: 'https://source.unsplash.com/daily?nature' 
                     },
-                    {   cardTitle: 'Title 2', 
+                    {   id:'qwe2',                     
+                        cardTitle: 'Title 2', 
                         cardSubtitle: 'Subtitle 2', 
                         cardText: 'Card quote 2', 
                         cardImg: 'https://source.unsplash.com/daily?sky' 
                     },
-                    {   cardTitle: 'Title 3', 
+                    {   id:'qwe3',
+                        cardTitle: 'Title 3', 
                         cardSubtitle: 'Subtitle 3', 
                         cardText: 'Card quote 3', 
                         cardImg: 'https://source.unsplash.com/daily?rock' 
                     },
-                    {   cardTitle: 'Title 4', 
+                    {   id:'qwe4',
+                        cardTitle: 'Title 4', 
                         cardSubtitle: 'Subtitle 4', 
                         cardText: 'Card quote 4', 
                         cardImg: 'https://source.unsplash.com/daily' 
                     },
-                    {   cardTitle: 'Title 5', 
+                    {   id:'qwe5',
+                        cardTitle: 'Title 5', 
                         cardSubtitle: 'Subtitle 5', 
                         cardText: 'Card quote 5', 
                         cardImg: 'https://source.unsplash.com/daily?wood' 
                     },
-                    {   cardTitle: 'Title 6', 
+                    {   id:'qwe6',
+                        cardTitle: 'Title 6', 
                         cardSubtitle: 'Subtitle 6', 
                         cardText: 'Card quote 6', 
                         cardImg: 'https://source.unsplash.com/weekly?water' 
                     },
-                    {   cardTitle: 'Title 1', 
+                    {   id:'qwe7',
+                        cardTitle: 'Title 1', 
                         cardSubtitle: 'Subtitle 1', 
                         cardText: 'Card quote 1', 
                         cardImg: 'https://source.unsplash.com/daily?a' 
                     },
-                    {   cardTitle: 'Title 2', 
+                    {   id:'qwe8',
+                        cardTitle: 'Title 2', 
                         cardSubtitle: 'Subtitle 2', 
                         cardText: 'Card quote 2', 
                         cardImg: 'https://source.unsplash.com/daily?tech' 
                     },
-                    {   cardTitle: 'Title 3', 
+                    {   id:'qwe9',
+                        cardTitle: 'Title 3', 
                         cardSubtitle: 'Subtitle 3', 
                         cardText: 'Card quote 3', 
                         cardImg: 'https://source.unsplash.com/collection/190727/800x600' 
                     },
-                    {   cardTitle: 'Title 4', 
+                    {   id:'qwe10',
+                        cardTitle: 'Title 4', 
                         cardSubtitle: 'Subtitle 4', 
                         cardText: 'Card quote 4', 
                         cardImg: 'https://source.unsplash.com/random' 
                     },
-                    {   cardTitle: 'Title 5', 
+                    {   id:'qwe11',
+                        cardTitle: 'Title 5', 
                         cardSubtitle: 'Subtitle 5', 
                         cardText: 'Card quote 5', 
                         cardImg: 'https://source.unsplash.com/daily?abstrack' 
                     },
-                    {   cardTitle: 'Title 6', 
+                    {   id:'qwe12',
+                        cardTitle: 'Title 6', 
                         cardSubtitle: 'Subtitle 6', 
                         cardText: 'Card quote 6', 
                         cardImg: 'https://source.unsplash.com/weekly' 
                     },
-                    {   cardTitle: 'Title 1', 
+                    {   id:'qwe13',
+                        cardTitle: 'Title 1', 
                         cardSubtitle: 'Subtitle 1', 
                         cardText: 'Card quote 1', 
                         cardImg: 'https://source.unsplash.com/daily?h' 
                     },
-                    {   cardTitle: 'Title 2', 
+                    {   id:'qwe14',
+                        cardTitle: 'Title 2', 
                         cardSubtitle: 'Subtitle 2', 
                         cardText: 'Card quote 2', 
                         cardImg: 'https://source.unsplash.com/daily?music' 
                     },
-                    {   cardTitle: 'Title 3', 
+                    {   id:'qwe15',
+                        cardTitle: 'Title 3', 
                         cardSubtitle: 'Subtitle 3', 
                         cardText: 'Card quote 3', 
                         cardImg: 'https://source.unsplash.com/user/erondu/daily' 
                     },
-                    {   cardTitle: 'Title 4', 
+                    {   id:'qwe16',
+                        cardTitle: 'Title 4', 
                         cardSubtitle: 'Subtitle 4', 
                         cardText: 'Card quote 4', 
                         cardImg: 'https://source.unsplash.com/random' 
                     },
-                    {   cardTitle: 'Title 5', 
+                    {   id:'qwe17',
+                        cardTitle: 'Title 5', 
                         cardSubtitle: 'Subtitle 5', 
                         cardText: 'Card quote 5', 
                         cardImg: 'https://source.unsplash.com/daily?design' 
                     },
-                    {   cardTitle: 'Title 6', 
+                    {   id:'qwe18',
+                        cardTitle: 'Title 6', 
                         cardSubtitle: 'Subtitle 6', 
                         cardText: 'Card quote 6', 
                         cardImg: 'https://source.unsplash.com/daily?z' 
                     }
                 ]
+            }
+        },
+        methods: {
+            onLoadCard (id) {
+                this.$router.push('/vendor/' + id)
             }
         }
     }

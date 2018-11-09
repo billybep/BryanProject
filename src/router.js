@@ -8,8 +8,6 @@ import CreateVendorService from '@/components/Vendor/CreateVendorService'
 import VendorService from '@/components/Vendor/VendorService'
 import Vendor from '@/components/Vendor/Vendor'
 
-
-
 Vue.use(Router)
 
 export default new Router({
