@@ -68,14 +68,13 @@
                         <v-layout row xs12>
                             <v-flex class="red">
                                 <v-img
-                                    src="https://source.unsplash.com/daily?musicz"
+                                    :src="vendor.cardImg"
                                     max-height="750px"
                                 ></v-img>
                             </v-flex>                  
                         </v-layout>
                         <v-divider></v-divider>
                         <v-layout row xs12>
-                            <v-card-media>
                                 <img
                                     src="https://source.unsplash.com/daily?music" 
                                     aspect-ratio="1.7778"
@@ -106,7 +105,6 @@
                                     aspect-ratio="1.7778"
                                     height="100"
                                     width="100">                                 
-                            </v-card-media>
                         </v-layout>
                         <v-divider></v-divider>
                         <v-layout row xs12>
@@ -141,6 +139,12 @@
                     }
                 ],
                 rating: 3,
+            }
+        },
+        props: ['id'],
+        computed: {
+            vendor (state) {
+                return state.$store.getters.loadedVendor(this.id)
             }
         }
         

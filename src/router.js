@@ -55,6 +55,7 @@ export default new Router({
     {
       path: '/vendor/:id',
       name: 'Vendor',
+      props: true,
       component: Vendor
     }
   ]

@@ -1,18 +1,17 @@
 <template>
 <div class="card-flex">
-    
+    <!-- @click="onLoadCard(item.id)" -->
     <div 
         class="card" 
-        v-for="item in cardItems" 
-        :key="item.cardTitle">
+        v-for="vendor in vendors" 
+        :key="vendor.id">
         
         <img 
             class="card-img-top" 
-            :src="item.cardImg"
+            :src="vendor.cardImg"
             max-height="600px"
-            @click="onLoadCard(item.id)"
+            @click="dialog=true"
             alt="Card image top">
-        
         <!-- <div class="card-img-overlay">
             <h3 class="card-title" style="color: white;">{{ item.cardTitle }}</h3>
             <h4 class="card-subtitle" style="color: white;">{{ item.cardSubtitle}}</h4>
@@ -33,7 +32,8 @@
                         <router-link 
                             tag="span" 
                             style="cursor: pointer"
-                            to="/vendor/1">Woman Avatar
+                            :to="'/vendor/' + vendor.id"
+                        >Woman Avatar
                         </router-link>
                     </p> 
                     <p class="card-text">
@@ -43,125 +43,165 @@
             </div>
         </div>
 
-    </div> 
+    </div>
+
+    <!-- Dialogs -->
+    <v-dialog
+      v-model="dialog"
+      fullscreen
+    >
+        <v-layout row wrap justify-center align-start>
+            <v-flex xs12 lg2 m-1>
+                <v-card>
+                    <v-container fluid>
+                       <v-layout row align-center>
+                           <v-flex xs3>
+                               <v-img
+                                src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" 
+                                class="rounded-circle" 
+                                alt="woman avatar"></v-img>
+                           </v-flex>
+                           <v-flex xs9>
+                               <v-card-title primary-title>
+                                    <div>
+                                        <h5 class="mb-0">Woman Avatar</h5>
+                                        <div><small>KATEGORI - LOKASI</small></div>
+                                    </div>
+                               </v-card-title>
+                           </v-flex>
+                       </v-layout>
+                       <v-layout row align-center>
+                           <v-flex xs12>
+                               <v-card-text>
+                                    <p><small>Harga-$$$</small> |</p>
+                                    <v-rating 
+                                        v-model="rating"
+                                        color="yellow accent-4"
+                                        dense
+                                        hover
+                                        size="14"></v-rating>
+                                    <small>Ulasan (10)</small>
+                                    
+                               </v-card-text>
+                           </v-flex>
+                       </v-layout>
+                       <v-divider></v-divider>
+                       <v-layout row align-center>
+                            <v-flex xs2> 
+                                <v-icon class="material-icons">email</v-icon>
+                            </v-flex>
+                            <v-flex xs10 ml-1>
+                                <v-card-text>: test@test.com</v-card-text>
+                            </v-flex>
+                       </v-layout>
+                       <v-layout row align-center>
+                            <v-flex xs2>
+                                <v-icon class="material-icons">phone</v-icon>
+                            </v-flex>
+                            <v-flex xs10 ml-1>
+                                <v-card-text>: xxxx-xxxx-xxxx</v-card-text>
+                            </v-flex>
+                       </v-layout>
+                    </v-container>
+                </v-card>
+            </v-flex>
+
+            <v-flex xs12 lg4 m-1>
+                <v-card>
+                    <v-container fluid>
+                        <v-layout row>
+                            <v-flex xs12 pb-3>
+                                <v-card-text class="pa-0 text-center"><h3 class="ma-0">Music Orchestra</h3></v-card-text>
+                                <v-card-text class="pa-0 text-center">Kategory | Lokasi</v-card-text>
+                            </v-flex>
+                            <v-btn 
+                                flat 
+                                small
+                                absolute
+                                dark
+                                fab     
+                                right
+                                color="blue darken-4"
+                                @click="dialog = false">
+                                <v-icon>clear</v-icon>
+                            </v-btn>
+                        </v-layout>
+                        <v-layout row xs12>
+                           
+                            <v-flex class="red">
+                                <v-img
+                                    src="https://source.unsplash.com/daily?musicz"
+                                    max-height="750px"
+                                ></v-img>
+                                
+                            </v-flex>                  
+                        </v-layout>
+                        <v-divider></v-divider>
+                        <v-layout row xs12>
+                            
+                                <img
+                                    src="https://source.unsplash.com/daily?music" 
+                                    aspect-ratio="1.7778"
+                                    height="100"
+                                    width="100">
+                                <img 
+                                    src="https://source.unsplash.com/daily?rock" 
+                                    aspect-ratio="1.7778"
+                                    height="100"
+                                    width="100">
+                                <img
+                                    src="https://source.unsplash.com/daily?music" 
+                                    aspect-ratio="1.7778"
+                                    height="100"
+                                    width="100">
+                                <img 
+                                    src="https://source.unsplash.com/daily?rock" 
+                                    aspect-ratio="1.7778"
+                                    height="100"
+                                    width="100"> 
+                                <img
+                                    src="https://source.unsplash.com/daily?music" 
+                                    aspect-ratio="1.7778"
+                                    height="100"
+                                    width="100">
+                                <img 
+                                    src="https://source.unsplash.com/daily?rock" 
+                                    aspect-ratio="1.7778"
+                                    height="100"
+                                    width="100">                                 
+                            
+                        </v-layout>
+                        <v-divider></v-divider>
+                        <v-layout row xs12>
+                            <v-card-actions class="pl-0">
+                                <v-card-title class="pl-0">Share on </v-card-title>
+                                <v-icon class="material-icons">mail</v-icon>
+                            </v-card-actions>
+                        </v-layout>
+                    </v-container>
+                </v-card>
+            </v-flex>
+        </v-layout>
+      
+
+    </v-dialog>
     
-</div>   
+</div> 
+  
 </template>
 
 <script>
+
     export default {
         data () {
             return {
-                cardItems: [
-                    {   id:'qwe1',
-                        cardTitle: 'Title 1', 
-                        cardSubtitle: 'Subtitle 1', 
-                        cardText: 'Card quote 1', 
-                        cardImg: 'https://source.unsplash.com/daily?nature' 
-                    },
-                    {   id:'qwe2',                     
-                        cardTitle: 'Title 2', 
-                        cardSubtitle: 'Subtitle 2', 
-                        cardText: 'Card quote 2', 
-                        cardImg: 'https://source.unsplash.com/daily?sky' 
-                    },
-                    {   id:'qwe3',
-                        cardTitle: 'Title 3', 
-                        cardSubtitle: 'Subtitle 3', 
-                        cardText: 'Card quote 3', 
-                        cardImg: 'https://source.unsplash.com/daily?rock' 
-                    },
-                    {   id:'qwe4',
-                        cardTitle: 'Title 4', 
-                        cardSubtitle: 'Subtitle 4', 
-                        cardText: 'Card quote 4', 
-                        cardImg: 'https://source.unsplash.com/daily' 
-                    },
-                    {   id:'qwe5',
-                        cardTitle: 'Title 5', 
-                        cardSubtitle: 'Subtitle 5', 
-                        cardText: 'Card quote 5', 
-                        cardImg: 'https://source.unsplash.com/daily?wood' 
-                    },
-                    {   id:'qwe6',
-                        cardTitle: 'Title 6', 
-                        cardSubtitle: 'Subtitle 6', 
-                        cardText: 'Card quote 6', 
-                        cardImg: 'https://source.unsplash.com/weekly?water' 
-                    },
-                    {   id:'qwe7',
-                        cardTitle: 'Title 1', 
-                        cardSubtitle: 'Subtitle 1', 
-                        cardText: 'Card quote 1', 
-                        cardImg: 'https://source.unsplash.com/daily?a' 
-                    },
-                    {   id:'qwe8',
-                        cardTitle: 'Title 2', 
-                        cardSubtitle: 'Subtitle 2', 
-                        cardText: 'Card quote 2', 
-                        cardImg: 'https://source.unsplash.com/daily?tech' 
-                    },
-                    {   id:'qwe9',
-                        cardTitle: 'Title 3', 
-                        cardSubtitle: 'Subtitle 3', 
-                        cardText: 'Card quote 3', 
-                        cardImg: 'https://source.unsplash.com/collection/190727/800x600' 
-                    },
-                    {   id:'qwe10',
-                        cardTitle: 'Title 4', 
-                        cardSubtitle: 'Subtitle 4', 
-                        cardText: 'Card quote 4', 
-                        cardImg: 'https://source.unsplash.com/random' 
-                    },
-                    {   id:'qwe11',
-                        cardTitle: 'Title 5', 
-                        cardSubtitle: 'Subtitle 5', 
-                        cardText: 'Card quote 5', 
-                        cardImg: 'https://source.unsplash.com/daily?abstrack' 
-                    },
-                    {   id:'qwe12',
-                        cardTitle: 'Title 6', 
-                        cardSubtitle: 'Subtitle 6', 
-                        cardText: 'Card quote 6', 
-                        cardImg: 'https://source.unsplash.com/weekly' 
-                    },
-                    {   id:'qwe13',
-                        cardTitle: 'Title 1', 
-                        cardSubtitle: 'Subtitle 1', 
-                        cardText: 'Card quote 1', 
-                        cardImg: 'https://source.unsplash.com/daily?h' 
-                    },
-                    {   id:'qwe14',
-                        cardTitle: 'Title 2', 
-                        cardSubtitle: 'Subtitle 2', 
-                        cardText: 'Card quote 2', 
-                        cardImg: 'https://source.unsplash.com/daily?music' 
-                    },
-                    {   id:'qwe15',
-                        cardTitle: 'Title 3', 
-                        cardSubtitle: 'Subtitle 3', 
-                        cardText: 'Card quote 3', 
-                        cardImg: 'https://source.unsplash.com/user/erondu/daily' 
-                    },
-                    {   id:'qwe16',
-                        cardTitle: 'Title 4', 
-                        cardSubtitle: 'Subtitle 4', 
-                        cardText: 'Card quote 4', 
-                        cardImg: 'https://source.unsplash.com/random' 
-                    },
-                    {   id:'qwe17',
-                        cardTitle: 'Title 5', 
-                        cardSubtitle: 'Subtitle 5', 
-                        cardText: 'Card quote 5', 
-                        cardImg: 'https://source.unsplash.com/daily?design' 
-                    },
-                    {   id:'qwe18',
-                        cardTitle: 'Title 6', 
-                        cardSubtitle: 'Subtitle 6', 
-                        cardText: 'Card quote 6', 
-                        cardImg: 'https://source.unsplash.com/daily?z' 
-                    }
-                ]
+                dialog: false,
+                rating: 4
+            }
+        },
+        computed: {
+            vendors () {
+               return this.$store.getters.featuredVendors
             }
         },
         methods: {
