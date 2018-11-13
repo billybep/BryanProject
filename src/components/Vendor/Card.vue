@@ -1,16 +1,18 @@
 <template>
 <div class="card-flex">
-
-    <v-card class="mb-3"
+    
+    <div 
+        class="card" 
         v-for="item in cardItems" 
-        :key="item.cardTitle">        
-        <v-img
+        :key="item.cardTitle">
+        
+        <img 
             class="card-img-top" 
             :src="item.cardImg"
             max-height="600px"
             @click="onLoadCard(item.id)"
-            alt="Card image top"></v-img>
-
+            alt="Card image top">
+        
         <!-- <div class="card-img-overlay">
             <h3 class="card-title" style="color: white;">{{ item.cardTitle }}</h3>
             <h4 class="card-subtitle" style="color: white;">{{ item.cardSubtitle}}</h4>
@@ -40,9 +42,9 @@
                 </div>
             </div>
         </div>
-    
-    </v-card> 
 
+    </div> 
+    
 </div>   
 </template>
 
