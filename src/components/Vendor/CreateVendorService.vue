@@ -68,6 +68,32 @@
                             <img :src="imageUrl" height="200">
                         </v-flex>
                     </v-layout>
+
+                    <!-- Date Picker -->
+                    <v-layout row>
+                        <v-flex xs12 sm6 offset-3>
+                            <v-menu
+                                :close-on-content-click="false"
+                                v-model="menu"
+                                :nudge-right="40"
+                                lazy
+                                transition="scale-transition"
+                                offset-y
+                                full-width
+                                min-width="290px">
+                                <v-text-field
+                                    slot="activator"
+                                    v-model="date"
+                                    label="Date"
+                                    prepend-icon="event"
+                                    readonly
+                                    ></v-text-field>
+                                    <v-date-picker v-model="date" @input="menu = false"></v-date-picker>
+                            </v-menu>
+                            <p>{{ date }}</p>
+                        </v-flex>
+                    </v-layout>
+
                     <v-layout>
                         <v-flex xs12 sm6 offset-sm3>
                             <v-btn 
@@ -90,7 +116,9 @@
                 title: '',
                 kategori: '',
                 lokasi: '',
-                imageUrl: ''
+                imageUrl: '',
+                date: new Date().toISOString().substr(0, 10),
+                menu: false
             }
         },
         computed: {
@@ -100,6 +128,10 @@
                     this.kategori !== '' &&
                     this.lokasi !== '' &&
                     this.imageUrl !== ''
+            },
+            submittableDate () {
+                const date = new Date(this.date)
+                return date
             }
         },
         methods: {
@@ -114,7 +146,7 @@
                     kategori: this.kategori,
                     lokasi: this.lokasi,
                     imageUrl: this.imageUrl,
-                    date: new Date()
+                    date: this.submittableDate
                 }
                 // 
                 this.$store.dispatch('createVendorService', vendorServiceData)

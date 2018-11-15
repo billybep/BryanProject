@@ -7,10 +7,10 @@
                    <v-container fluid>
                        <!-- Image Top -->
                        <v-layout row>
-                                <v-card-media
+                                <v-img
                                     src="https://source.unsplash.com/daily?music"
                                     height="300px"
-                                ></v-card-media>
+                                ></v-img>
                        </v-layout>
 
                        <!-- Card Body -->

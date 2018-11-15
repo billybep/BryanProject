@@ -48,17 +48,40 @@
 <script>
 import FilterMix from '@/components/FilterMix'
 
+// menuItems: [
+//         { icon: 'create', title: 'Create Service', link: '/vendor-service/new' },
+//         { icon: 'supervisor_account', title: 'User Account', link: '/vendor-services' },
+//         { icon: 'person', title: 'Profile', link: '/profile' },
+//         { icon: 'face', title: 'Sign up', link: '/signup' },
+//         { icon: 'lock_open', title: 'Sign in', link: '/signin' }
+//       ]
+
 export default {
   data () {
     return {
       sideNav: false,
-      menuItems: [
-        { icon: 'create', title: 'Create Service', link: '/vendor-service/new' },
-        { icon: 'supervisor_account', title: 'User Account', link: '/vendor-services' },
-        { icon: 'person', title: 'Profile', link: '/profile' },
+    }
+  },
+  computed: {
+    menuItems () {
+      // Menu sebelum vendor signin (guess menu)
+      let menuItems = [
         { icon: 'face', title: 'Sign up', link: '/signup' },
         { icon: 'lock_open', title: 'Sign in', link: '/signin' }
       ]
+      // jika user/vendor is authentikasi
+      if (this.vendorIsAuthenticated) {
+        menuItems = [
+          { icon: 'create', title: 'Create Service', link: '/vendor-service/new' },
+          { icon: 'person', title: 'Profile', link: '/profile' },
+          { icon: 'supervisor_account', title: 'User Account', link: '/vendor-services' }
+        ]
+      }
+      return menuItems
+    },
+    // Cek autentikasi
+    vendorIsAuthenticated () {
+      return this.$store.getters.vendor !== null && this.$store.getters.vendor !== undefined
     }
   },
   components: {

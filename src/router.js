@@ -43,7 +43,7 @@ export default new Router({
       component: Signup
     },
     {
-      path: '/vendor-services',
+      path: '/vendor-services/:id',
       name: 'Vendors',
       component: VendorService
     },

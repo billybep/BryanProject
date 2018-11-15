@@ -14,8 +14,8 @@
                            <v-flex xs9>
                                <v-card-title primary-title>
                                     <div>
-                                        <h5 class="mb-0">Woman Avatar</h5>
-                                        <div><small>KATEGORI - LOKASI</small></div>
+                                        <h5 class="mb-0">Woman Avatar (Vendor)</h5>
+                                        <div><small>{{ vendor.kategori }}</small> | <small>{{ vendor.location }}</small></div>
                                     </div>
                                </v-card-title>
                            </v-flex>
@@ -62,13 +62,13 @@
                         <v-layout row>
                             <v-flex xs12 pb-3>
                                 <v-card-text class="pa-0 text-center"><h3 class="ma-0">Music Orchestra</h3></v-card-text>
-                                <v-card-text class="pa-0 text-center">Kategory | Lokasi</v-card-text>
+                                <v-card-text class="pa-0 text-center">{{ vendor.kategori }} | {{ vendor.location }}</v-card-text>
                             </v-flex>
                         </v-layout>
                         <v-layout row xs12>
                             <v-flex class="red">
                                 <v-img
-                                    :src="vendor.cardImg"
+                                    :src="vendor.imageUrl"
                                     max-height="750px"
                                 ></v-img>
                             </v-flex>                  
