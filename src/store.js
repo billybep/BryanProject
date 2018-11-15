@@ -170,17 +170,37 @@ export const store = new Vuex.Store({
           date: '2018-11-13' 
       }
     ],
-    vendor: null
+    vendor: null,
+    loading: false,
+    error: null
   },
   mutations: {
+
     // Ambil Data dari CreateVendorService simpan ke Vuex Store
     createVendorService (state, payload) {
         state.loadedVendors.push(payload)
     },
+
     // Vendor payload == id, avatar
     setVendor (state, payload) {
         state.vendor = payload
+    },
+
+    // 
+    setLoading (state, payload) {
+        state.loading = payload
+    },
+
+    // 
+    setError (state, payload) {
+        state.error = payload
+    },
+
+    // 
+    clearError (state) {
+        state.error = null
     }
+
   },
   actions: {
     // destructuring payload CreateVendorService
@@ -200,11 +220,18 @@ export const store = new Vuex.Store({
 
     // Vendor SignUp
     signupVendor ({commit}, payload) {
+        // while reach the server(sukses/tidak) we loading
+        commit('setLoading', true)
+        commit('clearError')
+
         // autentikasi ke firebase
         firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
             // return promise, store ke vuex store > vendor
             .then(
                 vendor => {
+                    // Setelah signup loading selesai
+                    commit('setLoading', false)
+
                     // vendor on firebase = user
                     const newVendor = {
                         id: vendor.user.uid,
@@ -216,6 +243,9 @@ export const store = new Vuex.Store({
             )
             .catch(
                 error => {
+                    // loading proses selesai saat ada error
+                    commit('setLoading', false)
+                    commit('setError', error)
                     console.log(error);
                 }
             )
@@ -224,10 +254,17 @@ export const store = new Vuex.Store({
     // Vendor Signin
     //  payload dari page signin input ke firebase
     signinVendor ({commit}, payload) {
+        // while reach the server(sukses/tidak) we loading
+        commit('setLoading', true)
+        commit('clearError')
+        
         firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
             // promise sukes/tidak
             .then(
                 vendor => {
+                    // Setelah signup loading selesai
+                    commit('setLoading', false)
+
                     // vendor on firebase = user
                     const newVendor = {
                         id: vendor.user.uid,
@@ -239,9 +276,15 @@ export const store = new Vuex.Store({
             )
             .catch(
                 error => {
+                    // loading proses selesai saat ada error
+                    commit('setLoading', false)
+                    commit('setError', error)
                     console.log(error)
                 }
             )
+    },
+    clearError ({commit}) {
+        commit('clearError')
     }
   },
   getters: {
@@ -262,6 +305,12 @@ export const store = new Vuex.Store({
     },
     vendor (state) {
         return state.vendor
+    },
+    loading (state) {
+        return state.loading
+    },
+    error (state) {
+        return state.error
     }
   }
 })

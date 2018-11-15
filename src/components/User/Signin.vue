@@ -1,5 +1,13 @@
 <template>
     <v-container>
+        <!-- Alert Message -->
+        <v-layout row v-if="error">
+            <v-flex xs12 sm6 offset-sm3>
+                <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
+            </v-flex>
+        </v-layout>
+
+        <!-- Form Signin -->
         <v-layout>
             <v-flex xs12 sm6 offset-sm3>
                 <v-card>
@@ -37,7 +45,9 @@
                                 <!-- Button -->
                                 <v-layout>
                                     <v-flex>
-                                        <v-btn type="submit">Sign in</v-btn>
+                                        <v-btn type="submit" :disabled="loading" :loading="loading">
+                                            Sign in
+                                        </v-btn>
                                     </v-flex>
                                 </v-layout>
                             </form>
@@ -62,6 +72,16 @@
             // vendor in vuex store
             vendor () {
                 return this.$store.getters.vendor
+            },
+
+            // 
+            error () {
+                return this.$store.getters.error
+            },
+
+            // 
+            loading () {
+                return this.$store.getters.loading
             }
         },
         watch: {
@@ -77,11 +97,9 @@
             onSignin () {
                 // store to Vuex Store
                 this.$store.dispatch('signinVendor', { email: this.email, password: this.password })
-
-                console.log({ 
-                    email: this.email, 
-                    password: this.password,
-                    })
+            },
+            onDismissed () {
+                this.$store.dispatch('clearError')
             }
         }
     }

@@ -4,8 +4,11 @@ import App from './App.vue'
 import * as firebase from 'firebase'
 import router from './router'
 import { store } from './store'
+import AlertComp from './components/Shared/Alert.vue'
 
 Vue.config.productionTip = false
+
+Vue.component('app-alert', AlertComp)
 
 new Vue({
   router,

@@ -1,5 +1,12 @@
 <template>
     <v-container>
+        <!-- Alert Message -->
+        <v-layout row v-if="error">
+            <v-flex xs12 sm6 offset-sm3>
+                <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
+            </v-flex>
+        </v-layout>
+
         <v-layout>
             <v-flex xs12 sm6 offset-sm3>
                 <v-card>
@@ -51,7 +58,9 @@
                                 <!-- Button -->
                                 <v-layout>
                                     <v-flex>
-                                        <v-btn type="submit">Sign up</v-btn>
+                                        <v-btn type="submit" :disabled="loading" :loading="loading">
+                                            Sign up
+                                        </v-btn>
                                     </v-flex>
                                 </v-layout>
                             </form>
@@ -77,9 +86,20 @@
             comparePasswords () {
                 return this.password !== this.confirmPassword ? 'Password do not match' : ''
             },
+            
             // vendor in vuex store
             vendor () {
                 return this.$store.getters.vendor
+            },
+
+            // 
+            error () {
+                return this.$store.getters.error
+            },
+
+            // 
+            loading () {
+                return this.$store.getters.loading
             }
         },
         watch: {
@@ -95,12 +115,9 @@
             onSignup () {
                 // store to Vuex Store
                 this.$store.dispatch('signupVendor', { email: this.email, password: this.password })
-
-                console.log({ 
-                    email: this.email, 
-                    password: this.password, 
-                    confirmPassword: this.confirmPassword
-                    })
+            },
+            onDismissed () {
+                this.$store.dispatch('clearError')
             }
         }
     }
