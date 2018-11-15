@@ -7,10 +7,15 @@
     <app-test-dialog></app-test-dialog>
     </v-dialog>
 
-<v-layout class="card-flex" v-for="vendor in vendors" :key="vendor.id">
+<v-layout 
+    class="card-flex"
+    v-for="vendor in vendors" 
+    :key="vendor.id">
 
+    <transition name="slide">
     <!-- @click="onLoadCard(item.id)" -->
     <v-hover>
+    
 
     <v-card class="card"
         slot-scope="{ hover }"
@@ -60,8 +65,9 @@
     </v-card>
 
     <!-- Dialogs -->
-    
+
 </v-hover>
+</transition>
 </v-layout> 
 </v-container>
 
@@ -110,5 +116,6 @@ import TestDialog from '@/components/Vendor/TestDialog'
 .card-title {
     margin: 0px 0px;
 }
+
 </style>
 

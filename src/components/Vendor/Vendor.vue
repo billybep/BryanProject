@@ -61,8 +61,10 @@
                     <v-container fluid>
                         <v-layout row>
                             <v-flex xs12 pb-3>
-                                <v-card-text class="pa-0 text-center"><h3 class="ma-0">Music Orchestra</h3></v-card-text>
-                                <v-card-text class="pa-0 text-center">{{ vendor.kategori }} | {{ vendor.location }}</v-card-text>
+                                <v-card-text class="pa-0 text-center">
+                                    <div class="headline ma-0">Music Orchestraa</div>
+                                    <div><small> {{ vendor.date | dateFilter }} </small></div>
+                                </v-card-text>
                             </v-flex>
                         </v-layout>
                         <v-layout row xs12>

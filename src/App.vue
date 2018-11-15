@@ -40,7 +40,22 @@
     <main>
       <!-- Search Content Componen -->
       <app-filter-mix style="margin-top: 63px"></app-filter-mix>
+      
+      <!-- Loading Spinner -->
+        <v-layout>
+          <v-flex xs12 class="text-xs-center">
+            <v-progress-circular
+              :size="70"
+              :width="7"
+              color="grey"
+              indeterminate
+              v-if="loading"
+            ></v-progress-circular>
+          </v-flex>
+        </v-layout>
+
       <router-view></router-view>
+        
     </main>
   </v-app>
 </template>
@@ -82,6 +97,10 @@ export default {
     // Cek autentikasi
     vendorIsAuthenticated () {
       return this.$store.getters.vendor !== null && this.$store.getters.vendor !== undefined
+    },
+    // Loading state
+    loading () {
+      return this.$store.getters.loading
     }
   },
   components: {

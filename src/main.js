@@ -5,10 +5,13 @@ import * as firebase from 'firebase'
 import router from './router'
 import { store } from './store'
 import AlertComp from './components/Shared/Alert.vue'
+import DateFilter from './filters/date'
 
 Vue.config.productionTip = false
 
 Vue.component('app-alert', AlertComp)
+
+Vue.filter('dateFilter', DateFilter)
 
 new Vue({
   router,
@@ -22,5 +25,6 @@ new Vue({
       projectId: "musicproject-1",
       storageBucket: "musicproject-1.appspot.com",
     })
+    this.$store.dispatch('loadServices')
   }
 }).$mount('#app')
