@@ -25,6 +25,13 @@ new Vue({
       projectId: "musicproject-1",
       storageBucket: "musicproject-1.appspot.com",
     })
+    // 
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignin', user)
+      }
+    })
+    // 
     this.$store.dispatch('loadServices')
   }
 }).$mount('#app')

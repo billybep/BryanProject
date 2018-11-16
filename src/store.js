@@ -6,170 +6,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    loadedVendors: [
-        // {   id:'qwe1',
-        //     cardTitle: 'Title 1', 
-        //     cardSubtitle: 'Subtitle 1', 
-        //     cardText: 'Card quote 1', 
-        //     imageUrl: 'https://source.unsplash.com/daily?nature',
-        //     kategori: 'band',
-        //     location: 'manado',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe2',                     
-        //     cardTitle: 'Title 2', 
-        //     cardSubtitle: 'Subtitle 2', 
-        //     cardText: 'Card quote 2', 
-        //     imageUrl: 'https://source.unsplash.com/daily?sky',
-        //     kategori: 'bass-player',
-        //     location: 'manado',
-        //     date: new Date()
-        // },
-        // {   id:'qwe3',
-        //     cardTitle: 'Title 3', 
-        //     cardSubtitle: 'Subtitle 3', 
-        //     cardText: 'Card quote 3', 
-        //     imageUrl: 'https://source.unsplash.com/daily?rock',
-        //     kategori: 'guitar-teacher',
-        //     location: 'manado',
-        //     date: new Date()
-        // },
-        // {   id:'qwe4',
-        //     cardTitle: 'Title 4', 
-        //     cardSubtitle: 'Subtitle 4', 
-        //     cardText: 'Card quote 4', 
-        //     imageUrl: 'https://source.unsplash.com/daily',
-        //     kategori: 'Orchestra',
-        //     location: 'manado',
-        //     date: new Date()
-        // },
-        // {   id:'qwe5',
-        //     cardTitle: 'Title 5', 
-        //     cardSubtitle: 'Subtitle 5', 
-        //     cardText: 'Card quote 5', 
-        //     imageUrl: 'https://source.unsplash.com/daily?wood',
-        //     kategori: 'Piano-Player',
-        //     location: 'tomohon',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe6',
-        //     cardTitle: 'Title 6', 
-        //     cardSubtitle: 'Subtitle 6', 
-        //     cardText: 'Card quote 6', 
-        //     imageUrl: 'https://source.unsplash.com/weekly?water',
-        //     kategori: 'Full Band',
-        //     location: 'tondano',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe7',
-        //     cardTitle: 'Title 1', 
-        //     cardSubtitle: 'Subtitle 1', 
-        //     cardText: 'Card quote 1', 
-        //     imageUrl: 'https://source.unsplash.com/daily?a',
-        //     kategori: 'Acoustic Band',
-        //     location: 'jakarta',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe8',
-        //     cardTitle: 'Title 2', 
-        //     cardSubtitle: 'Subtitle 2', 
-        //     cardText: 'Card quote 2', 
-        //     imageUrl: 'https://source.unsplash.com/daily?tech',
-        //     kategori: 'test1',
-        //     location: 'manado',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe9',
-        //     cardTitle: 'Title 3', 
-        //     cardSubtitle: 'Subtitle 3', 
-        //     cardText: 'Card quote 3', 
-        //     imageUrl: 'https://source.unsplash.com/collection/190727/800x600',
-        //     kategori: 'Drum-Teacher',
-        //     location: 'jakarta',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe10',
-        //     cardTitle: 'Title 4', 
-        //     cardSubtitle: 'Subtitle 4', 
-        //     cardText: 'Card quote 4', 
-        //     imageUrl: 'https://source.unsplash.com/random',
-        //     kategori: 'Full Band',
-        //     location: 'semarang',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe11',
-        //     cardTitle: 'Title 5', 
-        //     cardSubtitle: 'Subtitle 5', 
-        //     cardText: 'Card quote 5', 
-        //     imageUrl: 'https://source.unsplash.com/daily?abstrack',
-        //     kategori: 'test2',
-        //     location: 'manado',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe12',
-        //     cardTitle: 'Title 6', 
-        //     cardSubtitle: 'Subtitle 6', 
-        //     cardText: 'Card quote 6', 
-        //     imageUrl: 'https://source.unsplash.com/weekly',
-        //     kategori: 'Guitar-Player',
-        //     location: 'tomohon',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe13',
-        //     cardTitle: 'Title 1', 
-        //     cardSubtitle: 'Subtitle 1', 
-        //     cardText: 'Card quote 1', 
-        //     imageUrl: 'https://source.unsplash.com/daily?h',
-        //     kategori: 'Guitar-Teacher',
-        //     location: 'tondano',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe14',
-        //     cardTitle: 'Title 2', 
-        //     cardSubtitle: 'Subtitle 2', 
-        //     cardText: 'Card quote 2', 
-        //     imageUrl: 'https://source.unsplash.com/daily?music',
-        //     kategori: 'test3',
-        //     location: 'jakarta',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe15',
-        //     cardTitle: 'Title 3', 
-        //     cardSubtitle: 'Subtitle 3', 
-        //     cardText: 'Card quote 3', 
-        //     imageUrl: 'https://source.unsplash.com/user/erondu/daily',
-        //     kategori: 'test4',
-        //     location: 'manado',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe16',
-        //     cardTitle: 'Title 4', 
-        //     cardSubtitle: 'Subtitle 4', 
-        //     cardText: 'Card quote 4', 
-        //     imageUrl: 'https://source.unsplash.com/random',
-        //     kategori: 'test5',
-        //     location: 'semarang',
-        //     date: new Date() 
-        // },
-        // {   id:'qwe17',
-        //     cardTitle: 'Title 5', 
-        //     cardSubtitle: 'Subtitle 5', 
-        //     cardText: 'Card quote 5', 
-        //     imageUrl: 'https://source.unsplash.com/daily?design',
-        //     kategori: 'test6',
-        //     location: 'jakarta',
-        //     date: new Date()
-        // },
-        // {   id:'qwe18',
-        //     cardTitle: 'Title 6', 
-        //     cardSubtitle: 'Subtitle 6', 
-        //     cardText: 'Card quote 6', 
-        //     imageUrl: 'https://source.unsplash.com/daily?z',
-        //     kategori: 'test7',
-        //     location: 'manado',
-        //     date: new Date() 
-        // }
-      ],
+    loadedVendors: [],
     vendor: null,
     loading: false,
     error: null
@@ -221,7 +58,8 @@ export const store = new Vuex.Store({
                         kategori: obj[key].kategori,
                         lokasi: obj[key].lokasi,
                         imageUrl: obj[key].imageUrl,
-                        date: obj[key].date
+                        date: obj[key].date,
+                        creatorId: obj[key].creatorId
                     })
                 }               
                 commit('setLoadedServices', services)
@@ -234,14 +72,15 @@ export const store = new Vuex.Store({
     },
 
     // destructuring payload CreateVendorService
-    createVendorService ({commit}, payload) {
+    createVendorService ({commit, getters}, payload) {
         const vendorService = {
             vendorName: payload.vendorName,
             title: payload.title,
             kategori: payload.kategori,
             lokasi: payload.lokasi,
             imageUrl: payload.imageUrl,
-            date: payload.date.toISOString()
+            date: payload.date.toISOString(),
+            creatorId: getters.vendor.id
         }
         // Reach out to firebase and store it
         firebase.database().ref('services').push(vendorService)
@@ -321,6 +160,17 @@ export const store = new Vuex.Store({
                     console.log(error)
                 }
             )
+    },
+    // Auto signin payload from firebase user UID
+    autoSignin ({commit}, payload) {
+        commit('setVendor', { id: payload.uid })
+    },
+    // Logout
+    logout({commit}) {
+        // remove firebase token from local storage
+        firebase.auth().signOut()
+        // set state vendor to null
+        commit('setVendor',null)
     },
     clearError ({commit}) {
         commit('clearError')

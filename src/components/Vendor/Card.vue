@@ -56,7 +56,7 @@
                         </router-link>
                     </p> 
                     <p class="card-text">
-                        <small>{{ vendor.kategori }}</small> | <small>{{ vendor.location }}</small>
+                        <small>{{ vendor.kategori }}</small> | <small>{{ vendor.lokasi }}</small>
                     </p>
                 </div>
             </div>

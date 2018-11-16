@@ -7,6 +7,7 @@ import Signup from '@/components/User/Signup'
 import CreateVendorService from '@/components/Vendor/CreateVendorService'
 import VendorService from '@/components/Vendor/VendorService'
 import Vendor from '@/components/Vendor/Vendor'
+import AuthGuard from './router/auth-guard'
 
 Vue.use(Router)
 
@@ -30,7 +31,8 @@ export default new Router({
     {
       path: '/profile',
       name: 'Profile',
-      component: Profile
+      component: Profile,
+      beforeEnter: AuthGuard
     },
     {
       path: '/signin',
@@ -50,7 +52,8 @@ export default new Router({
     {
       path: '/vendor-service/new',
       name: 'CreateVendorService',
-      component: CreateVendorService
+      component: CreateVendorService,
+      beforeEnter: AuthGuard
     },
     {
       path: '/vendor/:id',
