@@ -54,18 +54,21 @@
                     </v-layout>
                     <v-layout row>
                         <v-flex xs12 sm6 offset-sm3>
-                            <v-text-field
-                                name="imageUrl"
-                                label="image URL"
-                                id="image-Url"
-                                v-model="imageUrl"
-                                required
-                            ></v-text-field>
+                            <v-btn
+                                @click="onPickFile"
+                                raised 
+                                class="primary">Upload Image</v-btn>
+                            <input 
+                                type="file" 
+                                style="display: none" 
+                                ref="fileInput" 
+                                accept="image/*"
+                                @change="onFilePicked">
                         </v-flex>
                     </v-layout>
                     <v-layout row>
                         <v-flex xs12 sm6 offset-sm3>
-                            <img :src="imageUrl" height="200">
+                            <img :src="imageUrl" height="350">
                         </v-flex>
                     </v-layout>
 
@@ -118,6 +121,7 @@
                 lokasi: '',
                 imageUrl: '',
                 date: new Date().toISOString().substr(0, 10),
+                image: null,
                 menu: false
             }
         },
@@ -139,18 +143,38 @@
                 if (!this.formIsValid) {
                     return
                 }
+                if (!this.image) {
+                    return
+                }
                 // data dari inputForm
                 const vendorServiceData = {
                     vendorName: this.vendorName,
                     title: this.title,
                     kategori: this.kategori,
                     lokasi: this.lokasi,
-                    imageUrl: this.imageUrl,
+                    image: this.image,
                     date: this.submittableDate
                 }
                 // 
                 this.$store.dispatch('createVendorService', vendorServiceData)
                 this.$router.push('/')
+            },
+            onPickFile() {
+                this.$refs.fileInput.click()
+            },
+            onFilePicked (event) {
+                const files = event.target.files
+                let filename = files[0].name
+                if (filename.lastIndexOf('.') <= 0) {
+                    return alert('please add a valid file!')
+                }
+                // Convert binary file to string
+                const fileReader = new FileReader()
+                fileReader.addEventListener('load', () => {
+                    this.imageUrl = fileReader.result
+                })
+                fileReader.readAsDataURL(files[0])
+                this.image = files[0]
             }
         }
     }

@@ -22,6 +22,22 @@ export const store = new Vuex.Store({
         state.loadedVendors.push(payload)
     },
 
+    // 
+    updateService (state, payload) {
+        const vendor = state.loadedVendors.find(vendor => {
+            return vendor.id === payload.id
+        })
+        if (payload.title) {
+            vendor.title = payload.title
+        }
+        if (payload.kategori) {
+            vendor.kategori = payload.kategori
+        }
+        if (payload.date) {
+            vendor.date = payload.date
+        }
+    },
+
     // Vendor payload == id, avatar
     setVendor (state, payload) {
         state.vendor = payload
@@ -78,21 +94,64 @@ export const store = new Vuex.Store({
             title: payload.title,
             kategori: payload.kategori,
             lokasi: payload.lokasi,
-            imageUrl: payload.imageUrl,
             date: payload.date.toISOString(),
             creatorId: getters.vendor.id
         }
+        // 
+        let imageUrl
+        let key
         // Reach out to firebase and store it
         firebase.database().ref('services').push(vendorService)
             .then((data) => {
-                const key = data.key;
+                key = data.key
+                return key
+            })
+            .then( key => {
+                const filename = payload.image.name
+                const ext = filename.slice(filename.lastIndexOf('.'))
+                return firebase.storage().ref('services/' + key + '.' + ext).put(payload.image)
+            })
+            .then( fileData => {
+                imageUrl = fileData.metadata.fullPath
+                return firebase.storage().ref().child(imageUrl).getDownloadURL()
+            })
+            .then( url => {
+                imageUrl = url
+                return firebase.database().ref('services').child(key).update({imageUrl: imageUrl})
+            })
+            .then(() => {
                 commit('createVendorService', {
                     ...vendorService,
+                    imageUrl: imageUrl,
                     id: key
                 })
             })
             .catch((error) => {
                 console.log(error)
+            })
+    },
+    // Update edit service (payload = title, kategori >> EditDialog)
+    updateServiceData ({commit}, payload) {
+        commit('setLoading', true)
+        const updateObj = {}
+        if (payload.title) {
+            updateObj.title = payload.title
+        }
+        if (payload.kategori) {
+            updateObj.kategori = payload.kategori
+        }
+        if (payload.date) {
+            updateObj.date = payload.date
+        }
+        // 
+        firebase.database().ref('services').child(payload.id).update(updateObj)
+            .then(() => {
+                commit('setLoading', false)
+                commit('updateService', payload)
+            })
+            .catch(error => {
+                console.log(error)
+                commit('setLoading', false)
             })
     },
 

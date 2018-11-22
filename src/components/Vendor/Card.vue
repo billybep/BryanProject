@@ -12,7 +12,6 @@
     v-for="vendor in vendors" 
     :key="vendor.id">
 
-    <transition name="slide">
     <!-- @click="onLoadCard(item.id)" -->
     <v-hover>
     
@@ -64,58 +63,54 @@
 
     </v-card>
 
-    <!-- Dialogs -->
-
 </v-hover>
-</transition>
 </v-layout> 
 </v-container>
 
 </template>
 
 <script>
-import TestDialog from '@/components/Vendor/TestDialog'
+import TestDialog from "@/components/Vendor/TestDialog";
 
-    export default {
-        components: {
-            appTestDialog: TestDialog
-        },
-        data () {
-            return {
-                rating: 4,
-                dialog: false
-            }
-        },
-        computed: {
-            vendors () {
-               return this.$store.getters.loadedVendors
-            }
-        },
-        methods: {
-            onLoadCard (id) {
-                this.dialog = true;
-                // this.$router.push('/vendor/' + id)
-            }
-        }
+export default {
+  components: {
+    appTestDialog: TestDialog
+  },
+  data() {
+    return {
+      rating: 4,
+      dialog: false
+    };
+  },
+  computed: {
+    vendors() {
+      return this.$store.getters.loadedVendors;
     }
+  },
+  methods: {
+    onLoadCard(id) {
+      this.dialog = true;
+      // this.$router.push('/vendor/' + id)
+    }
+  }
+};
 </script>
 
 <style>
 .card-flex {
-    display: inline;
+  display: inline;
 }
 
 .rounded-circle {
-    margin: 0 3px 0 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    vertical-align: middle;
+  margin: 0 3px 0 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
 }
 
 .card-title {
-    margin: 0px 0px;
+  margin: 0px 0px;
 }
-
 </style>
 

@@ -1,7 +1,22 @@
 <template>
+<v-container fluid class="pa-1">
+    <!-- Loading Spinner -->
+        <v-layout>
+          <v-flex xs12 class="text-xs-center">
+            <v-progress-circular
+              :size="70"
+              :width="7"
+              color="grey"
+              indeterminate
+              v-if="loading"
+            ></v-progress-circular>
+          </v-flex>
+        </v-layout>
+
     <v-container class="card-columns">
         <app-card></app-card>
     </v-container>
+</v-container>
 </template>
 
 <script>
@@ -13,6 +28,12 @@
         components: {
             appCard: Card,
             appCardTest: CardTest
+        },
+        computed: {
+        // Loading state
+            loading () {
+                return this.$store.getters.loading
+            }
         }
     }
 </script>

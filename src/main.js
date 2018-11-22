@@ -4,12 +4,16 @@ import App from './App.vue'
 import * as firebase from 'firebase'
 import router from './router'
 import { store } from './store'
-import AlertComp from './components/Shared/Alert.vue'
 import DateFilter from './filters/date'
+
+import AlertComp from './components/Shared/Alert.vue'
+import EditServiceDetailsDialog from './components/Vendor/Edit/EditServiceDetailsDialog.vue'
 
 Vue.config.productionTip = false
 
 Vue.component('app-alert', AlertComp)
+Vue.component('app-edit-service-details-dialog', EditServiceDetailsDialog)
+
 
 Vue.filter('dateFilter', DateFilter)
 

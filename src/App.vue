@@ -31,16 +31,17 @@
         @click.stop="sideNav = !sideNav"
         class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer">BrianMusicProject</router-link>
+        <router-link to="/" tag="span" style="cursor: pointer">MusicProject <small class="grey--text">vendor-site</small> </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn 
-          flat 
+        <!-- Menu -->
+        <v-btn  
           v-for="item in menuItems" 
           :key="item.title"
-          :to="item.link">
-          <i dark class="material-icons">{{ item.icon }}</i>
+          :to="item.link"
+          flat>
+          <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
 
@@ -59,68 +60,63 @@
     <main>
       <!-- Search Content Componen -->
       <app-filter-mix style="margin-top: 63px"></app-filter-mix>
-      
-      <!-- Loading Spinner -->
-        <v-layout>
-          <v-flex xs12 class="text-xs-center">
-            <v-progress-circular
-              :size="70"
-              :width="7"
-              color="grey"
-              indeterminate
-              v-if="loading"
-            ></v-progress-circular>
-          </v-flex>
-        </v-layout>
-
-      <router-view></router-view>
-        
+      <router-view></router-view>       
     </main>
   </v-app>
 </template>
 
 <script>
-import FilterMix from '@/components/FilterMix'
+import FilterMix from "@/components/FilterMix"
 
 export default {
-  data () {
+  data() {
     return {
-      sideNav: false,
-    }
+      sideNav: false
+    };
   },
   computed: {
-    menuItems () {
+    menuItems() {
       // Menu sebelum vendor signin (guess menu)
       let menuItems = [
-        { icon: 'face', title: 'Sign up', link: '/signup' },
-        { icon: 'lock_open', title: 'Sign in', link: '/signin' }
-      ]
+        { icon: "face", title: "Sign up", link: "/signup" },
+        { icon: "lock_open", title: "Sign in", link: "/signin" }
+      ];
       // jika user/vendor is authentikasi
       if (this.vendorIsAuthenticated) {
         menuItems = [
-          { icon: 'create', title: 'Create Service', link: '/vendor-service/new' },
-          { icon: 'person', title: 'Profile', link: '/profile' },
-          { icon: 'supervisor_account', title: 'User Account', link: '/vendor-services' },
-        ]
+          {
+            icon: "create",
+            title: "Create Service",
+            link: "/vendor-service/new"
+          },
+          { icon: "person", 
+            title: "Profile", 
+            link: "/profile" 
+          },
+          {
+            icon: "supervisor_account",
+            title: "User Account",
+            link: "/vendor-services"
+          }
+        ];
       }
-      return menuItems
+      return menuItems;
     },
     // Cek autentikasi
-    vendorIsAuthenticated () {
-      return this.$store.getters.vendor !== null && this.$store.getters.vendor !== undefined
-    },
-    // Loading state
-    loading () {
-      return this.$store.getters.loading
+    vendorIsAuthenticated() {
+      return (
+        this.$store.getters.vendor !== null &&
+        this.$store.getters.vendor !== undefined
+      );
     }
   },
   methods: {
-    onLogout () {
-      this.$store.dispatch('logout')
+    onLogout() {
+      this.$store.dispatch("logout");
     }
   },
   components: {
     appFilterMix: FilterMix
   }
-}
+};
 </script>
